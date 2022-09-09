@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @a0161446
 - 👀 I’m interested in Golf
-- 🌱 I’m currently learning git and azure
+- 🌱 I’m currently learning Azure
 - 💞️ I’m looking to collaborate on ...
 - 📫 How to reach me ...
 
