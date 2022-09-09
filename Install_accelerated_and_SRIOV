@@ -1,0 +1,67 @@
+cd /home/deployer
+grep -R accelerated-bridge-cin-daemonset.yaml .
+kubectl create -f ./images/k8s-v1.16/accelerated-bridge-cni-daemonset.yaml
+
+
+cd /home/deployer/accelerated-bridge-cni/
+
+cat ./images/k8s-v1.16/accelerated-bridge-cni-daemonset.yaml
+
+
+kubectl version 
+	This give you listings of "GitVersion"
+	
+	
+	To deploy accelerated-bridge-cni-daemonset.yaml
+	
+	kubectl create -f ./images/k8s-v1.16/accelerated-bridge-cni-daemonset.yaml
+	
+	
+	cd /home/deployer/accelerated-bridge-cni/
+	kubectl create -f ./images/k8s-v1.16/accelerated-bridge-cni-daemonset.yaml
+	
+	Installs the daemonset.
+	
+	Then run
+	kubectl get ds -A
+	
+	Verify that "kube-accelerated-bridge-cni-ds-amd64" is being created.
+	
+	Next
+	
+	cd /home/deployer/sriov-network-device-plugin/
+	
+	kubectl apply -f configMap.yaml
+	kubectl apply -f sriovdp-daemonset.yaml
+	
+	view README.md
+	
+	Check if there are deployments happening:
+	
+	cd /home/deployer/sriov-network-device-plugin/deployments
+	
+	cat configMap.yaml
+	
+	cd /home/deployer/sriov-network-device-plugin
+	kubectl create -f deployments/configMap.yaml
+	
+	
+	Next create daemonset:
+	kubectl create -f deployments/k8s-v1.16/sriovdp-daemonset.yaml
+	
+	
+	These should be created when you run that command:
+	Daemonset.apps/kube-sriov-device-plugin-amd64 created
+	Daemonset.apps/kube-sriov-device-plugin-ppc64le created
+	Daemonset.apps/kube-sriov-device-plugin-arm64 created
+	
+	Then run :
+	kubectl get ds -A
+	Look for those 3  services being created.
+	
+	To Validate:
+	kubectl -n kube-system get  pods |grep sriov
+	You should be able to see the entries.
+	
+	
+	kubectl create -f deployments/configMap.yaml
